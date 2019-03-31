@@ -9,14 +9,14 @@
 
     <TextView
         android:id="@+id/mainTextView"
-        android:layout_width="374dp"
+        android:layout_width="337dp"
         android:layout_height="414dp"
         android:layout_marginTop="92dp"
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
