@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">EvansAdventureAndroid</string>
+    <string name="character_name">Player</string>
+    <string name="menu_text">
+        " Evan's Adventure\n\n"
+        "by Evan Sullivan\n\n"
+        "(1) New Game\n"
+        "(2) Load Game\n"
+        "(3) Exit Game"</string>
+    <string name="new_game_text">
+        " New Game\n\n"
+        "Enter character name:\n\n"
+        "(5) Main Menu"</string>
+    <string name="load_game_text">
+        " Load Game\n\n"
+        "Enter character file location:\n\n"
+        "(5) Main Menu"</string>
+    <string name="exit_game_text">
+        " Exit Game\n\n"
+        "Are you sure?\n\n"
+        "(1) Yes\n"
+        "(2) No\n"
+        "(5) Main Menu"</string>
+    <string name="location_field_text">Location</string>
+    <string name="name_field_text">Name</string>
+</resources>
