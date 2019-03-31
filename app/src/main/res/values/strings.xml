@@ -2,25 +2,48 @@
     <string name="app_name">EvansAdventureAndroid</string>
     <string name="character_name">Player</string>
     <string name="menu_text">
-        " Evan's Adventure\n\n"
-        "by Evan Sullivan\n\n"
-        "(1) New Game\n"
-        "(2) Load Game\n"
-        "(3) Exit Game"</string>
+	    "=========================================="
+	    "\n==           EVAN'S ADVENTURE           =="
+	    "\n=========================================="
+	    "\n      [ by Evan Sullivan (zvan92) ]"
+	    "\n\n(1) New Game \n(2) Load Game \n(3) Exit Game \n\nEnter choice:"</string>
     <string name="new_game_text">
-        " New Game\n\n"
-        "Enter character name:\n\n"
-        "(5) Main Menu"</string>
+		"=========================================="
+		"\n==           EVAN'S ADVENTURE           =="
+		"\n=========================================="
+		"\n               [ New Game ]"
+		"\n\nEnter character name or type 'esc' to cancel:"
+		"\n\n(1) Confirm\n(5) Main Menu"</string>
     <string name="load_game_text">
-        " Load Game\n\n"
-        "Enter character file location:\n\n"
-        "(5) Main Menu"</string>
+	    "=========================================="
+	    "\n==           EVAN'S ADVENTURE           =="
+	    "\n=========================================="
+	    "\n              [ Load Game ]"
+	    "\n\nEnter character file location\n[ i.e. C:/Users/Evan/Documents/evan.txt ]\nor type 'esc' to cancel:"
+		"\n\n(1) Confirm\n(5) Main Menu"</string>
     <string name="exit_game_text">
-        " Exit Game\n\n"
-        "Are you sure?\n\n"
-        "(1) Yes\n"
-        "(2) No\n"
-        "(5) Main Menu"</string>
+        "Thanks for playing!"
+        "\n\n(5) Main Menu"</string>
+    <string name="map_text">
+        "   EVAN'S ADVENTURE: MAP  "
+	    "\n==========================="
+	    "\n  _       _ _             "
+	    "\n | |  _ _|   |    _   _   "
+	    "\n | | |  _  | |_ _| |_| |_ "
+	    "\n | |_| |_ _|_ _ _   _ _ _|"
+	    "\n |_ _ _ _    |  _| |_ _  |"
+	    "\n |_ _   _ _| |_   _|_   _|"
+	    "\n |_    |  _ _|  _ _ _|   |"
+	    "\n   | |_| |  _ _   _ _| |_ END"
+	    "\n   |_ _  |_ _ _|_ _ _ _ _|"
+	    "\n      START               "
+	    "\n==========================="
+        "\n\n(5) Return"</string>
+	<string name="user_choice_text">
+		"Turns completed: Player::Instance()->getTurnsCompleted()"
+		"\n\nWhat would you like to do, Player::Instance()->getPlayerName()?"
+		"\n\n(1) Move\n(2) Look Around\n(3) View Map\n(4) Save Progress\n(5) End Game"
+		"\n\nEnter Choice:"</string>
     <string name="location_field_text">Location</string>
     <string name="name_field_text">Name</string>
 </resources>

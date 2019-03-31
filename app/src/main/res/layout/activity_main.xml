@@ -9,11 +9,12 @@
 
     <TextView
         android:id="@+id/mainTextView"
-        android:layout_width="290dp"
+        android:layout_width="374dp"
         android:layout_height="414dp"
         android:layout_marginTop="92dp"
-        android:textSize="18sp"
         android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,10 +84,9 @@
         android:inputType="textPersonName"
         android:singleLine="false"
         android:text="Name"
-        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/mainTextView"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/mainTextView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.969" />

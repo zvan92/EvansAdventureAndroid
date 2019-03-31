@@ -1,5 +1,6 @@
 package com.example.evansadventureandroid;
 
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Resources res = getResources();
         TextView myTextView = findViewById(R.id.mainTextView);
         EditText editText = findViewById(R.id.editText);
         Button button1 = findViewById(R.id.button1);
@@ -36,28 +38,36 @@ public class MainActivity extends AppCompatActivity {
         buttons.add(button4);
         buttons.add(button5);
 
-        mainMenu(myTextView, editText, buttons);
+        mainMenu(res, myTextView, editText, buttons);
+    }
+    
+    private void clearButtonListeners(ArrayList<Button> buttons)
+    {
+        for (int i = 0; i < buttons.size(); i++)
+        {
+            buttons.get(i).setOnClickListener(null);
+        }
     }
 
-    public void mainMenu(final TextView textView,
+    public void mainMenu(final Resources res,
+                         final TextView textView,
                          final EditText editText,
                          final ArrayList<Button> buttons)
     {
+        Game.game_in_progress = false;
+        
         textView.setText(R.string.menu_text);
 
         editText.setText(null);
         editText.setVisibility(View.GONE);
 
-        buttons.get(0).setOnClickListener(null);
-        buttons.get(1).setOnClickListener(null);
-        buttons.get(2).setOnClickListener(null);
-        buttons.get(3).setOnClickListener(null);
-        buttons.get(4).setOnClickListener(null);
+        clearButtonListeners(buttons);
 
         //set main menu button1 to new game
         buttons.get(0).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                newGame(textView,
+                newGame(res,
+                        textView,
                         editText,
                         buttons);
             }
@@ -66,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
         //set main menu button2 to load game
         buttons.get(1).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                loadGame(textView,
+                loadGame(res,
+                        textView,
                         editText,
                         buttons);
             }
@@ -75,14 +86,26 @@ public class MainActivity extends AppCompatActivity {
         //set main menu button3 to exit game
         buttons.get(2).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                exitGame(textView,
+                exitGame(res,
+                        textView,
+                        editText,
+                        buttons);
+            }
+        });
+
+        //set main menu button4 to display map
+        buttons.get(3).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                displayMap(res,
+                        textView,
                         editText,
                         buttons);
             }
         });
     }
 
-    public void newGame(final TextView textView,
+    public void newGame(final Resources res,
+                        final TextView textView,
                         final EditText editText,
                         final ArrayList<Button> buttons)
     {
@@ -92,23 +115,31 @@ public class MainActivity extends AppCompatActivity {
         editText.setText(R.string.name_field_text);
         editText.setVisibility(View.VISIBLE);
 
-        buttons.get(0).setOnClickListener(null);
-        buttons.get(1).setOnClickListener(null);
-        buttons.get(2).setOnClickListener(null);
-        buttons.get(3).setOnClickListener(null);
-        buttons.get(4).setOnClickListener(null);
+        clearButtonListeners(buttons);
 
         //set new game button5 to main menu
         buttons.get(4).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                mainMenu(textView,
+                mainMenu(res,
+                        textView,
+                        editText,
+                        buttons);
+            }
+        });
+
+        //set new game button1 to confirm
+        buttons.get(0).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                promptUserChoice(res,
+                        textView,
                         editText,
                         buttons);
             }
         });
     }
 
-    public void loadGame(final TextView textView,
+    public void loadGame(final Resources res,
+                         final TextView textView,
                          final EditText editText,
                          final ArrayList<Button> buttons)
     {
@@ -118,23 +149,21 @@ public class MainActivity extends AppCompatActivity {
         editText.setText(R.string.location_field_text);
         editText.setVisibility(View.VISIBLE);
 
-        buttons.get(0).setOnClickListener(null);
-        buttons.get(1).setOnClickListener(null);
-        buttons.get(2).setOnClickListener(null);
-        buttons.get(3).setOnClickListener(null);
-        buttons.get(4).setOnClickListener(null);
+        clearButtonListeners(buttons);
 
         //set load game button5 to main menu
         buttons.get(4).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                mainMenu(textView,
+                mainMenu(res,
+                        textView,
                         editText,
                         buttons);
             }
         });
     }
 
-    public void exitGame(final TextView textView,
+    public void exitGame(final Resources res,
+                         final TextView textView,
                          final EditText editText,
                          final ArrayList<Button> buttons)
     {
@@ -143,16 +172,87 @@ public class MainActivity extends AppCompatActivity {
         editText.setText(null);
         editText.setVisibility(View.GONE);
 
-        buttons.get(0).setOnClickListener(null);
-        buttons.get(1).setOnClickListener(null);
-        buttons.get(2).setOnClickListener(null);
-        buttons.get(3).setOnClickListener(null);
-        buttons.get(4).setOnClickListener(null);
+        clearButtonListeners(buttons);
 
         //set exit game button5 to main menu
         buttons.get(4).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                mainMenu(textView,
+                mainMenu(res,
+                        textView,
+                        editText,
+                        buttons);
+            }
+        });
+    }
+
+    public void displayMap(final Resources res,
+                           final TextView textView,
+                           final EditText editText,
+                           final ArrayList<Button> buttons)
+    {
+        textView.setText(R.string.map_text);
+
+        editText.setText(null);
+        editText.setVisibility(View.GONE);
+
+        clearButtonListeners(buttons);
+
+        //if game in progress, set button5 to go user choice screen
+        if(Game.game_in_progress = true)
+        {
+            buttons.get(4).setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    promptUserChoice(res,
+                            textView,
+                            editText,
+                            buttons);
+                }
+            });
+        }
+        else
+        {
+            //if game not in progress, set button5 to go to main menu
+            buttons.get(4).setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    mainMenu(res,
+                            textView,
+                            editText,
+                            buttons);
+                }
+            });
+        }
+
+    }
+
+    public void promptUserChoice(final Resources res,
+                                 final TextView textView,
+                                 final EditText editText,
+                                 final ArrayList<Button> buttons)
+    {
+        Game.game_in_progress = true;
+
+        textView.setText(R.string.user_choice_text);
+
+        editText.setText(null);
+        editText.setVisibility(View.GONE);
+
+        clearButtonListeners(buttons);
+
+        //set exit game button5 to main menu
+        buttons.get(4).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                mainMenu(res,
+                        textView,
+                        editText,
+                        buttons);
+            }
+        });
+
+        //set button3 to display map
+        buttons.get(2).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                displayMap(res,
+                        textView,
                         editText,
                         buttons);
             }
