@@ -84,6 +84,7 @@
         android:inputType="textPersonName"
         android:singleLine="false"
         android:text="Name"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/mainTextView"
         app:layout_constraintHorizontal_bias="0.5"
