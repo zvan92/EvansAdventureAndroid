@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     {
         Game.game_in_progress = false;
         
-        textView.setText(R.string.menu_text);
+        textView.setText(R.string.menu_screen_text);
 
         editText.setText(null);
         editText.setVisibility(View.GONE);
@@ -130,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
         //set new game button1 to confirm
         buttons.get(0).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                //collect the name entered in the name field and store it as player name
+                Game.character_name = editText.getText().toString();
                 promptUserChoice(res,
                         textView,
                         editText,
@@ -190,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                            final EditText editText,
                            final ArrayList<Button> buttons)
     {
-        textView.setText(R.string.map_text);
+        textView.setText(R.string.map_screen_text);
 
         editText.setText(null);
         editText.setVisibility(View.GONE);
@@ -231,7 +233,11 @@ public class MainActivity extends AppCompatActivity {
     {
         Game.game_in_progress = true;
 
-        textView.setText(R.string.user_choice_text);
+        textView.setText(getString(R.string.turns_completed_text) +
+                Game.turns_completed +
+                getString(R.string.user_choice_asking_text) +
+                Game.character_name + "?" +
+                getString(R.string.user_choice_options_text));
 
         editText.setText(null);
         editText.setVisibility(View.GONE);
