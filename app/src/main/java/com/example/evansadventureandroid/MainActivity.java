@@ -244,7 +244,17 @@ public class MainActivity extends AppCompatActivity {
 
         clearButtonListeners(buttons);
 
-        //set exit game button5 to main menu
+        //set button1 to prompt move direction
+        buttons.get(0).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                promptForDirection(res,
+                        textView,
+                        editText,
+                        buttons);
+            }
+        });
+
+        //set button5 to return to main menu
         buttons.get(4).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 mainMenu(res,
@@ -258,6 +268,31 @@ public class MainActivity extends AppCompatActivity {
         buttons.get(2).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 displayMap(res,
+                        textView,
+                        editText,
+                        buttons);
+            }
+        });
+    }
+
+    public void promptForDirection(final Resources res,
+                                 final TextView textView,
+                                 final EditText editText,
+                                 final ArrayList<Button> buttons)
+    {
+        Game.game_in_progress = true;
+
+        textView.setText(R.string.prompt_direction_text);
+
+        editText.setText(null);
+        editText.setVisibility(View.GONE);
+
+        clearButtonListeners(buttons);
+
+        //set button5 to return to user choice screen
+        buttons.get(4).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                promptUserChoice(res,
                         textView,
                         editText,
                         buttons);

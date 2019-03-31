@@ -38,6 +38,9 @@
 	    "\n      START               "
 	    "\n==========================="
         "\n\n(5) Return"</string>
+	<string name="prompt_direction_text">
+		"Move in which direction?"
+		"\n\n(1) North\n(2) South\n(3) East\n(4) West\n(5) Cancel\n\n"</string>
     <string name="turns_completed_text">"Turns completed: "</string>
     <string name="user_choice_asking_text">"\n\nWhat would you like to do, "</string>
     <string name="user_choice_options_text">
