@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //create design components
+        //create View references
         Resources res = getResources();
         TextView myTextView = findViewById(R.id.mainTextView);
         EditText editText = findViewById(R.id.editText);
@@ -25,16 +23,13 @@ public class MainActivity extends AppCompatActivity {
         Button button3 = findViewById(R.id.button3);
         Button button4 = findViewById(R.id.button4);
         Button button5 = findViewById(R.id.button5);
-        ArrayList<Button> buttons = new ArrayList();
-        buttons.add(button1);
-        buttons.add(button2);
-        buttons.add(button3);
-        buttons.add(button4);
-        buttons.add(button5);
 
-        //create and run game instance and pass in design components
+        //create UI object and pass View references to its constructor
+        UI ui = new UI(res, myTextView, editText, button1, button2, button3, button4, button5);
+
+        //create and run game instance, passing in UI object
         Game game = new Game();
-        game.run(res, myTextView, editText, buttons);
+        game.run(ui);
     }
     
 
